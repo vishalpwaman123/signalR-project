@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Xnv/e+wrqXI/lnIdf4yyKW9AALxjRtwAcGY8/bRqLd4=",
+  "Source": "SignalR.Web.Application",
+  "BasePath": "_content/SignalR.Web.Application",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

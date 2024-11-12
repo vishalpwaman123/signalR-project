@@ -34,6 +34,15 @@ namespace SignalR.Web.Application
             }
         }
 
+        public async Task JoinShoppingList(string shoppingListId)
+        {
+            if(_groupIdShoppingLists.TryGetValue(shoppingListId, out var list))
+            {
+                await Groups.AddToGroupAsync(Context.ConnectionId, shoppingListId);
+                await Clients.Caller.SendAsync("joinShoppingList", shoppingListId, list);
+            }
+        }
+
         //By Default Method
         /*public override async Task OnConnectedAsync()
         {

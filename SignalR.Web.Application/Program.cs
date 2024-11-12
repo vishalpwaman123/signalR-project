@@ -11,6 +11,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSignalR(); //Add SignalR Dependency
 
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy("MyPolicy", target =>
+                                target.WithOrigins("http://localhost:4200")
+                                .AllowAnyHeader()
+                                .AllowCredentials());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapHub<ShoppingListHub>("/shoppingListHub");
+
+app.UseCors("MyPolicy");
 
 app.UseHttpsRedirection();
 
